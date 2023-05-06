@@ -82,6 +82,14 @@ exports.setPushables = pushTable => {
     for (const pushes of pushesList)
       native.push_table_set(pusher, pushes);
 };
+	
+exports.sleep = ms => {
+  var start = new Date().getTime();
+  var end = start;
+  while(end < start + ms) {
+    end = new Date().getTime();
+  }
+};
 
 let afterInputs = [];
 exports.afterInput = fn => (console.log('engine.js:afterInputs'), afterInputs.push(fn));
